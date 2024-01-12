@@ -1,0 +1,16 @@
+<div class="mt-5" id="preview">
+  <div class="card" >
+    <div class="card-header text-primary font-weight-bold fs-4">Company Name: {{ data.companyname }}</div>
+    <div class="card-body">
+      <p class="card-text">Name: {{ data.name }}</p>
+      <p class="card-text">Email: {{ data.email }}</p>
+      <p class="card-text">Phone: {{ data.phoneno }}</p>
+      <p class="card-text">Designation: {{ data.designation }}</p>
+    </div>
+   
+  </div>
+  
+</div>
+<div class="card-footer">
+  <button class="btn btn-primary" (click)="generatePDF()">Download PDF</button>
+</div>

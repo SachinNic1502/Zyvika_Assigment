@@ -1,0 +1,67 @@
+<div class="container-fluid border m-1 p-2">
+    <div class="row text-center">
+        <h2>Visiting Card Builder</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Visiting Card Form</h5>
+                    <div class="container mt-5">
+                        <form [formGroup]="cardForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" formControlName="name" />
+                                <div class="text-danger" *ngIf="cardForm.get('name')?.hasError('required') && cardForm.get('name')?.touched">
+                                    Name is required
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" formControlName="email" />
+                                <div class="text-danger" *ngIf="cardForm.get('email')?.hasError('required') && cardForm.get('email')?.touched">
+                                    Email is required
+                                </div>
+                                <div class="text-danger" *ngIf="cardForm.get('email')?.hasError('email') && cardForm.get('email')?.touched">
+                                    Invalid email format
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phoneno" class="form-label">Phone Number :</label>
+                                <input type="number" class="form-control" id="phoneno" formControlName="phoneno" />
+                                <div class="text-danger" *ngIf="cardForm.get('phoneno')?.hasError('required') && cardForm.get('phoneno')?.touched">
+                                    Phone Number is required
+                                </div>
+                                <div class="text-danger" *ngIf="cardForm.get('phoneno')?.hasError('pattern') && cardForm.get('phoneno')?.touched">
+                                    Phone Number should be 10 digits
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="companyname" class="form-label">Company Name:</label>
+                                <input type="text" class="form-control" id="companyname" formControlName="companyname" />
+                                <div class="text-danger" *ngIf="cardForm.get('companyname')?.hasError('required') && cardForm.get('companyname')?.touched">
+                                    Company Name is required
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="designation" class="form-label">Designation:</label>
+                                <input type="text" class="form-control" id="designation" formControlName="designation" />
+                                <div class="text-danger" *ngIf="cardForm.get('designation')?.hasError('required') && cardForm.get('designation')?.touched">
+                                    Designation is required
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <app-preview [data]="cardForm.value"></app-preview>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
